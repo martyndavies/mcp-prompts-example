@@ -60,7 +60,9 @@
             }
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
       },
       "post": {
         "summary": "Create a new todo",
@@ -112,7 +114,9 @@
             }
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
       }
     },
     "/todos/{id}": {
@@ -180,7 +184,9 @@
             }
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
       },
       "delete": {
         "summary": "Delete a todo",
@@ -215,7 +221,42 @@
             }
           }
         },
-        "tags": ["Todo"]
+        "tags": [
+          "Todo"
+        ]
+      }
+    },
+    "/mcp": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "MCP Server",
+        "description": "A set of tools to manage a todolist. It can create, update and delete todos.",
+        "x-zuplo-route": {
+          "corsPolicy": "anything-goes",
+          "handler": {
+            "export": "mcpServerHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "files": [
+                {
+                  "path": "./config/routes.oas.json",
+                  "operationIds": [
+                    "get-all-todos",
+                    "create-todo",
+                    "update-todo",
+                    "delete-todo"
+                  ]
+                }
+              ]
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "0faf4f3e-7ddf-4734-a227-9c2146a73896"
       }
     }
   },
@@ -241,7 +282,12 @@
             "description": "The user ID who owns the todo"
           }
         },
-        "required": ["id", "title", "completed", "userId"]
+        "required": [
+          "id",
+          "title",
+          "completed",
+          "userId"
+        ]
       },
       "CreateTodo": {
         "type": "object",
@@ -260,7 +306,10 @@
             "description": "The user ID who owns the todo"
           }
         },
-        "required": ["title", "userId"]
+        "required": [
+          "title",
+          "userId"
+        ]
       },
       "UpdateTodo": {
         "type": "object",
