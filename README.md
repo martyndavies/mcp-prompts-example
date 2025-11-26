@@ -102,7 +102,5 @@ The server will expose:
 
 ## Learn More
 
-- [Zuplo Documentation](https://zuplo.com/docs)
+- [Zuplo MCP Documentation](https://zuplo.com/docs/mcp-server/introduction)
 - [Model Context Protocol Docs](https://modelcontextprotocol.io)
-- [Building MCP Servers with Zuplo](https://zuplo.com/blog/2024/12/16/building-mcp-servers-with-zuplo)
-- [Join Zuplo Discord](https://discord.zuplo.com)
