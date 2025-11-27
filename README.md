@@ -16,16 +16,10 @@ This project implements a **Bookmark Manager** with MCP integration that showcas
 
 ### Key Components
 - **OpenAPI-based Routes** (`config/routes.oas.json`) - API routes with MCP annotations
-- **Bookmark Handlers** (`modules/bookmarks.ts`) - CRUD operations with cache-based storage
+- **Bookmark Handlers** (`modules/bookmarks.ts`) - CRUD operations with cache-based storage, for demo purposes this is the "database".
 - **Research Prompt** (`modules/research-roundup-prompt.ts`) - Custom MCP prompt implementation
-- **Built-in Documentation** (`docs/`) - Zudoku-powered API documentation
 
 ## Getting Started
-
-### Prerequisites
-
-- Node.js 18 or later
-- npm, yarn, or pnpm
 
 ### Installation
 
@@ -82,15 +76,17 @@ Deploy to a working copy environment:
 zuplo deploy
 ```
 
-Or deploy to production:
-
-```bash
-zuplo deploy --prod
-```
-
 ## Using the MCP Server
 
 Once deployed, you can connect to your MCP server using any MCP client (like Claude Desktop). Configure your MCP client to point to:
+
+### Local Dev
+
+```
+http://localhost:9000/mcp
+```
+
+### Deployed
 
 ```
 https://your-project.zuplo.app/mcp
