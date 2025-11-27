@@ -1,29 +1,102 @@
-## Zuplo API
+# MCP Bookmark Manager Example
 
-This is a Zuplo API that was created with
-[`create-zuplo-api`](https://zuplo.com/docs).
+This is a [Model Context Protocol (MCP)](https://modelcontextprotocol.io) server built with [Zuplo](https://zuplo.com) that demonstrates how to implement MCP tools and prompts using an OpenAPI-defined API.
+
+## What This Example Includes
+
+This project implements a **Bookmark Manager** with MCP integration that showcases:
+
+### MCP Tools
+- **`list-bookmarks`** - List saved bookmarks with optional tag filtering
+- **`save-bookmark`** - Save a new bookmark with URL, title, and tags
+- **`delete-bookmark`** - Delete a bookmark by ID
+
+### MCP Prompts
+- **`research-roundup`** - An AI prompt that analyzes recent bookmarks to identify research patterns, themes, and suggest next steps
+
+### Key Components
+- **OpenAPI-based Routes** (`config/routes.oas.json`) - API routes with MCP annotations
+- **Bookmark Handlers** (`modules/bookmarks.ts`) - CRUD operations with cache-based storage, for demo purposes this is the "database".
+- **Research Prompt** (`modules/research-roundup-prompt.ts`) - Custom MCP prompt implementation
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+```bash
+npm install
+```
+
+### Running Locally
+
+Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:9000](http://localhost:9000) with your browser to see the
-result.
+The API will be available at [http://localhost:9000](http://localhost:9000).
 
-You can start editing the API by modifying `config/routes.oas.json`. The dev
-server will automatically reload the API with your changes.
+You can access:
+- **API Gateway** - `http://localhost:9000`
+- **Local API Route Designer** - `http://localhost:9100`
+- **MCP Endpoint** - `http://localhost:9000/mcp` (POST)
+
+The dev server will automatically reload when you modify:
+- Route definitions in `config/routes.oas.json`
+- Handler modules in `modules/`
+
+## Deploying with Zuplo CLI
+
+### Install the Zuplo CLI
+
+```bash
+npm install -g zuplo
+```
+
+### Login to Zuplo
+
+```bash
+zuplo login
+```
+
+### Create a New Project
+
+```bash
+zuplo init
+```
+
+Follow the prompts to create a new project in your Zuplo account.
+
+### Deploy to Zuplo
+
+Deploy to a working copy environment:
+
+```bash
+zuplo deploy
+```
+
+## Using the MCP Server
+
+Once deployed, you can connect to your MCP server using any MCP client (like Claude Desktop). Configure your MCP client to point to:
+
+### Local Dev
+
+```
+http://localhost:9000/mcp
+```
+
+### Deployed
+
+```
+https://your-project.zuplo.app/mcp
+```
+
+The server will expose:
+- 3 tools for managing bookmarks
+- 1 prompt for analyzing your research patterns
 
 ## Learn More
 
-To learn more about Zuplo, you can visit the
-[Zuplo documentation](https://zuplo.com/docs).
-
-To connect with the community join [Discord](https://discord.zuplo.com).
+- [Zuplo MCP Documentation](https://zuplo.com/docs/mcp-server/introduction)
+- [Model Context Protocol Docs](https://modelcontextprotocol.io)
